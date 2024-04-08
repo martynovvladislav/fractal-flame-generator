@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Controller.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Java Course submissions</a> &gt; <a href="index.source.html" class="el_package">edu.fractalFlame</a> &gt; <span class="el_source">Controller.java</span></div><h1>Controller.java</h1><pre class="source lang-java linenums">package edu.fractalFlame;
+
+import edu.fractalFlame.entities.FractalImage;
+import edu.fractalFlame.entities.Rect;
+import edu.fractalFlame.imageMakers.ImageFormat;
+import edu.fractalFlame.imageMakers.ImageUtils;
+import edu.fractalFlame.imageProcessors.LogGammaCorrectionProcessor;
+import edu.fractalFlame.renderers.MultiThreadRenderer;
+import edu.fractalFlame.renderers.SingleThreadRenderer;
+import edu.fractalFlame.transformations.DiskTransformation;
+import edu.fractalFlame.transformations.HeartTransformation;
+import edu.fractalFlame.transformations.HyperbolicTransformation;
+import edu.fractalFlame.transformations.LinearTransformation;
+import edu.fractalFlame.transformations.PolarTransformation;
+import edu.fractalFlame.transformations.SineTransformation;
+import edu.fractalFlame.transformations.SphericalTransformation;
+import edu.fractalFlame.transformations.Transformation;
+import edu.fractalFlame.ui.UIRenderer;
+import java.awt.Image;
+import java.io.File;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import lombok.extern.slf4j.Slf4j;
+import static edu.fractalFlame.ui.UIRenderer.DISK_TRANSFORMATION;
+import static edu.fractalFlame.ui.UIRenderer.HEART_TRANSFORMATION;
+import static edu.fractalFlame.ui.UIRenderer.HYPERBOLIC_TRANSFORMATION;
+import static edu.fractalFlame.ui.UIRenderer.LINEAR_TRANSFORMATION;
+import static edu.fractalFlame.ui.UIRenderer.POLAR_TRANSFORMATION;
+import static edu.fractalFlame.ui.UIRenderer.SINE_TRANSFORMATION;
+import static edu.fractalFlame.ui.UIRenderer.SPHERICAL_TRANSFORMATION;
+
+<span class="nc" id="L37">@Slf4j</span>
+<span class="nc" id="L38">public class Controller {</span>
+<span class="nc" id="L39">    private final UIRenderer uiRenderer = new UIRenderer();</span>
+    public static final String IMAGE_PATH = &quot;C:\\FractalFlame\\image.png&quot;;
+
+<span class="nc" id="L42">    private static final Map&lt;String, Transformation&gt; TRANSFORMATION_MAP = Map.of(</span>
+        DISK_TRANSFORMATION, new DiskTransformation(),
+        HEART_TRANSFORMATION, new HeartTransformation(),
+        HYPERBOLIC_TRANSFORMATION, new HyperbolicTransformation(),
+        LINEAR_TRANSFORMATION, new LinearTransformation(),
+        POLAR_TRANSFORMATION, new PolarTransformation(),
+        SINE_TRANSFORMATION, new SineTransformation(),
+        SPHERICAL_TRANSFORMATION, new SphericalTransformation()
+    );
+
+    public void initializeUI() {
+<span class="nc" id="L53">        initializeButtonListeners();</span>
+<span class="nc" id="L54">        uiRenderer.setVisible(true);</span>
+<span class="nc" id="L55">    }</span>
+
+    private void initializeButtonListeners() {
+<span class="nc" id="L58">        uiRenderer.getStartButton().setEnabled(true);</span>
+<span class="nc" id="L59">        uiRenderer.getStopButton().setEnabled(false);</span>
+<span class="nc" id="L60">        uiRenderer.getStartButton().addActionListener(e -&gt; {</span>
+<span class="nc" id="L61">            uiRenderer.getStartButton().setEnabled(false);</span>
+            try {
+<span class="nc" id="L63">                startRender();</span>
+<span class="nc" id="L64">            } catch (Exception ex) {</span>
+<span class="nc" id="L65">                log.info(ex.getMessage());</span>
+<span class="nc" id="L66">            }</span>
+<span class="nc" id="L67">            uiRenderer.getStartButton().setEnabled(true);</span>
+<span class="nc" id="L68">        });</span>
+<span class="nc" id="L69">    }</span>
+
+    @SuppressWarnings(&quot;checkstyle:MagicNumber&quot;)
+    private void startRender() {
+        FractalImage image;
+<span class="nc" id="L74">        List&lt;Transformation&gt; transformations = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L75">        uiRenderer.getCheckBoxes().forEach(</span>
+            cb -&gt; {
+<span class="nc bnc" id="L77" title="All 2 branches missed.">                if (cb.isSelected()) {</span>
+<span class="nc" id="L78">                    transformations.add(TRANSFORMATION_MAP.get(cb.getText()));</span>
+                }
+<span class="nc" id="L80">            }</span>
+        );
+<span class="nc" id="L82">        int affine = 0;</span>
+<span class="nc" id="L83">        int symmetry = 0;</span>
+<span class="nc" id="L84">        int samples = 0;</span>
+<span class="nc" id="L85">        int iterations = 0;</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        for (Map.Entry&lt;JLabel, JTextField&gt; entry : uiRenderer.getFieldMap().entrySet()) {</span>
+<span class="nc bnc" id="L87" title="All 4 branches missed.">            switch (entry.getKey().getText()) {</span>
+<span class="nc" id="L88">                case &quot;Enter Affine Amount:&quot; -&gt; affine = Integer.parseInt(entry.getValue().getText());</span>
+<span class="nc" id="L89">                case &quot;Enter Symmetry:&quot; -&gt; symmetry = Integer.parseInt(entry.getValue().getText());</span>
+<span class="nc" id="L90">                case &quot;Enter Samples Amount:&quot; -&gt; samples = Integer.parseInt(entry.getValue().getText());</span>
+<span class="nc" id="L91">                default -&gt; iterations = Integer.parseInt(entry.getValue().getText());</span>
+            }
+<span class="nc" id="L93">        }</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if (uiRenderer.getMultiThreadCheckBox().isSelected()) {</span>
+<span class="nc" id="L95">            MultiThreadRenderer multiThreadRenderer = new MultiThreadRenderer();</span>
+<span class="nc" id="L96">            image = multiThreadRenderer.render(</span>
+<span class="nc" id="L97">                FractalImage.create(3840, 2160),</span>
+                new Rect(-3, -2, 6, 6),
+                transformations,
+                affine,
+                symmetry,
+                samples,
+                iterations
+            );
+<span class="nc" id="L105">        } else {</span>
+<span class="nc" id="L106">            SingleThreadRenderer singleThreadRenderer = new SingleThreadRenderer();</span>
+<span class="nc" id="L107">            image = singleThreadRenderer.render(</span>
+<span class="nc" id="L108">                FractalImage.create(3840, 2160),</span>
+                new Rect(-3, -2, 6, 6),
+                transformations,
+                affine,
+                symmetry,
+                samples,
+                iterations
+            );
+        }
+<span class="nc" id="L117">        log.info(&quot;completed&quot;);</span>
+<span class="nc" id="L118">        LogGammaCorrectionProcessor processor = new LogGammaCorrectionProcessor();</span>
+<span class="nc" id="L119">        processor.process(image, 1.0);</span>
+<span class="nc" id="L120">        ImageUtils.save(</span>
+            image,
+<span class="nc" id="L122">            Path.of(IMAGE_PATH),</span>
+            ImageFormat.PNG
+        );
+<span class="nc" id="L125">        uiRenderer.getImageLabel().setIcon(</span>
+            new ImageIcon(
+                new ImageIcon(IMAGE_PATH)
+<span class="nc" id="L128">                    .getImage()</span>
+<span class="nc" id="L129">                    .getScaledInstance(830, 600, Image.SCALE_SMOOTH)</span>
+            )
+        );
+<span class="nc" id="L132">        uiRenderer.getStartButton().setEnabled(true);</span>
+<span class="nc" id="L133">    }</span>
+
+    public void createDirectory() {
+<span class="nc" id="L136">        File directory = new File(&quot;C:\\FractalFlame&quot;);</span>
+
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        if (!directory.exists()) {</span>
+<span class="nc" id="L139">            directory.mkdir();</span>
+        }
+<span class="nc" id="L141">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

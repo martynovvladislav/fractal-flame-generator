@@ -1,0 +1,24 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Java Course submissions,edu.fractalFlame.entities,Pixel,20,68,0,0,10,20,5,8,5,8
+Java Course submissions,edu.fractalFlame.entities,Point,0,9,0,0,0,1,0,1,0,1
+Java Course submissions,edu.fractalFlame.entities,FractalImage,0,72,3,9,0,9,3,7,0,4
+Java Course submissions,edu.fractalFlame.entities,Rect,0,49,3,5,0,2,3,3,0,2
+Java Course submissions,edu.fractalFlame.utils,WorldUtils,93,0,2,0,10,0,3,0,2,0
+Java Course submissions,edu.fractalFlame.utils,RandomUtils,0,29,0,0,0,4,0,2,0,2
+Java Course submissions,edu.fractalFlame.imageMakers,ImageUtils,6,58,0,4,2,9,0,3,0,1
+Java Course submissions,edu.fractalFlame.imageMakers,ImageFormat,0,9,0,0,0,2,0,1,0,1
+Java Course submissions,edu.fractalFlame.transformations,HeartTransformation,42,0,0,0,8,0,2,0,2,0
+Java Course submissions,edu.fractalFlame.transformations,SphericalTransformation,38,0,0,0,5,0,2,0,2,0
+Java Course submissions,edu.fractalFlame.transformations,SineTransformation,13,0,0,0,2,0,2,0,2,0
+Java Course submissions,edu.fractalFlame.transformations,LinearTransformation,0,11,0,0,0,2,0,2,0,2
+Java Course submissions,edu.fractalFlame.transformations,DiskTransformation,48,0,0,0,7,0,2,0,2,0
+Java Course submissions,edu.fractalFlame.transformations,PolarTransformation,33,0,0,0,6,0,2,0,2,0
+Java Course submissions,edu.fractalFlame.transformations,HyperbolicTransformation,39,0,0,0,8,0,2,0,2,0
+Java Course submissions,edu.fractalFlame.transformations,AffineTransformation,0,229,0,10,0,25,0,10,0,5
+Java Course submissions,edu.fractalFlame.ui,UIRenderer,279,0,2,0,41,0,8,0,7,0
+Java Course submissions,edu.fractalFlame.renderers,MultiThreadRenderer,6,49,0,2,2,11,0,4,0,3
+Java Course submissions,edu.fractalFlame.renderers,AbstractRenderer,78,33,9,3,24,9,6,3,1,2
+Java Course submissions,edu.fractalFlame.renderers,SingleThreadRenderer,0,23,0,2,0,5,0,3,0,2
+Java Course submissions,edu.fractalFlame.imageProcessors,LogGammaCorrectionProcessor,123,0,12,0,16,0,8,0,2,0
+Java Course submissions,edu.fractalFlame,Main,9,0,0,0,4,0,1,0,1,0
+Java Course submissions,edu.fractalFlame,Controller,269,0,12,0,56,0,15,0,8,0

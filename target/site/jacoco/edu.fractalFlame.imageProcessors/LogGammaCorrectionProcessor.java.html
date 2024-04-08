@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LogGammaCorrectionProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Java Course submissions</a> &gt; <a href="index.source.html" class="el_package">edu.fractalFlame.imageProcessors</a> &gt; <span class="el_source">LogGammaCorrectionProcessor.java</span></div><h1>LogGammaCorrectionProcessor.java</h1><pre class="source lang-java linenums">package edu.fractalFlame.imageProcessors;
+
+import edu.fractalFlame.entities.FractalImage;
+import edu.fractalFlame.entities.Pixel;
+
+<span class="nc" id="L6">public class LogGammaCorrectionProcessor {</span>
+    public void process(FractalImage image, double gamma) {
+<span class="nc" id="L8">        double max = 0.0;</span>
+<span class="nc bnc" id="L9" title="All 2 branches missed.">        for (int y = 0; y &lt; image.height(); y++) {</span>
+<span class="nc bnc" id="L10" title="All 2 branches missed.">            for (int x = 0; x &lt; image.width(); x++) {</span>
+<span class="nc bnc" id="L11" title="All 2 branches missed.">                if (image.pixel(x, y).getHitCount() != 0) {</span>
+<span class="nc" id="L12">                    image.pixel(x, y).setNormal(Math.log10(image.pixel(x, y).getHitCount()));</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">                    if (image.pixel(x, y).getNormal() &gt; max) {</span>
+<span class="nc" id="L14">                        max = image.pixel(x, y).getNormal();</span>
+                    }
+                }
+            }
+        }
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        for (int y = 0; y &lt; image.height(); y++) {</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">            for (int x = 0; x &lt; image.width(); x++) {</span>
+<span class="nc" id="L21">                Pixel pixel = image.pixel(x, y);</span>
+<span class="nc" id="L22">                pixel.setNormal(image.pixel(x, y).getNormal() / max);</span>
+<span class="nc" id="L23">                pixel.setR((int) (pixel.getR() * Math.pow(pixel.getNormal(), (1.0 / gamma))));</span>
+<span class="nc" id="L24">                pixel.setG((int) (pixel.getG() * Math.pow(pixel.getNormal(), (1.0 / gamma))));</span>
+<span class="nc" id="L25">                pixel.setB((int) (pixel.getB() * Math.pow(pixel.getNormal(), (1.0 / gamma))));</span>
+            }
+        }
+<span class="nc" id="L28">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,6 @@
+edu\fractalFlame\entitiesTests\TestsForFractalImage.class
+edu\fractalFlame\renderersTests\TestsForRenderers.class
+edu\fractalFlame\entitiesTests\TestsForRect.class
+edu\fractalFlame\transformationsTests\TestsForAffineTransformations.class
+edu\fractalFlame\entitiesTests\TestsForPixel.class
+edu\fractalFlame\imageMakerTests\TestsForImageMaker.class

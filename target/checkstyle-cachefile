@@ -1,0 +1,22 @@
+#Mon Apr 08 12:55:58 UTC 2024
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\entities\\FractalImage.java=1712333242358
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\entities\\Pixel.java=1712333242171
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\entities\\Point.java=1712333242219
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\entities\\Rect.java=1712333242242
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\imageMakers\\ImageFormat.java=1712578635438
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\imageProcessors\\LogGammaCorrectionProcessor.java=1712333242226
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\renderers\\AbstractRenderer.java=1712333242211
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\renderers\\MultiThreadRenderer.java=1712405283708
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\renderers\\Renderer.java=1712333242297
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\renderers\\SingleThreadRenderer.java=1712576338155
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\AffineTransformation.java=1712333242346
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\DiskTransformation.java=1712333242237
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\HeartTransformation.java=1712333242197
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\HyperbolicTransformation.java=1712333242179
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\LinearTransformation.java=1712333242318
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\PolarTransformation.java=1712333242283
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\SineTransformation.java=1712333242340
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\SphericalTransformation.java=1712333242310
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\transformations\\Transformation.java=1712333242187
+C\:\\Users\\marty\\IdeaProjects\\FractalFlameUI\\src\\main\\java\\edu\\fractalFlame\\ui\\UIRenderer.java=1712578660990
+configuration*?=C552965A768B8DBE2BB136BBBA05F0F95268FE3A

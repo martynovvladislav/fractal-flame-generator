@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DiskTransformation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Java Course submissions</a> &gt; <a href="index.source.html" class="el_package">edu.fractalFlame.transformations</a> &gt; <span class="el_source">DiskTransformation.java</span></div><h1>DiskTransformation.java</h1><pre class="source lang-java linenums">package edu.fractalFlame.transformations;
+
+import edu.fractalFlame.entities.Point;
+
+<span class="nc" id="L5">public class DiskTransformation implements Transformation {</span>
+    @Override
+    public Point apply(Point point) {
+<span class="nc" id="L8">        double x = point.x();</span>
+<span class="nc" id="L9">        double y = point.y();</span>
+<span class="nc" id="L10">        double sqrt = Math.sqrt(x * x + y * y);</span>
+<span class="nc" id="L11">        double newX = 1 / Math.PI * Math.atan(y / x) * Math.sin(Math.PI * sqrt);</span>
+<span class="nc" id="L12">        double newY = 1 / Math.PI * Math.atan(y / x) * Math.cos(Math.PI * sqrt);</span>
+<span class="nc" id="L13">        return new Point(newX, newY);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\Controller.java">
+<error line="88" column="55" severity="error" message="Inner assignments should be avoided." source="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
+<error line="89" column="52" severity="error" message="Inner assignments should be avoided." source="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
+<error line="90" column="57" severity="error" message="Inner assignments should be avoided." source="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
+<error line="91" column="39" severity="error" message="Inner assignments should be avoided." source="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\entities\FractalImage.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\entities\Pixel.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\entities\Point.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\entities\Rect.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\imageMakers\ImageFormat.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\imageMakers\ImageUtils.java">
+<error line="10" column="1" severity="warning" message="Private ctor in non-final class. Inspect the code and make sure its intended." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\imageProcessors\LogGammaCorrectionProcessor.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\Main.java">
+<error line="3" column="1" severity="warning" message="Private ctor in non-final class. Inspect the code and make sure its intended." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\renderers\AbstractRenderer.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\renderers\MultiThreadRenderer.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\renderers\Renderer.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\renderers\SingleThreadRenderer.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\AffineTransformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\DiskTransformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\HeartTransformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\HyperbolicTransformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\LinearTransformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\PolarTransformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\SineTransformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\SphericalTransformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\transformations\Transformation.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\ui\UIRenderer.java">
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\utils\RandomUtils.java">
+<error line="8" column="1" severity="warning" message="Private ctor in non-final class. Inspect the code and make sure its intended." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
+</file>
+<file name="C:\Users\marty\IdeaProjects\FractalFlameUI\src\main\java\edu\fractalFlame\utils\WorldUtils.java">
+<error line="8" column="1" severity="warning" message="Private ctor in non-final class. Inspect the code and make sure its intended." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
+</file>
+</checkstyle>

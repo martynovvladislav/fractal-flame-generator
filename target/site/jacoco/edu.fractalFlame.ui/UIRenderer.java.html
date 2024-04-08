@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UIRenderer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Java Course submissions</a> &gt; <a href="index.source.html" class="el_package">edu.fractalFlame.ui</a> &gt; <span class="el_source">UIRenderer.java</span></div><h1>UIRenderer.java</h1><pre class="source lang-java linenums">package edu.fractalFlame.ui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import lombok.Getter;
+
+@Getter
+public class UIRenderer extends JFrame {
+    public static final String DISK_TRANSFORMATION = &quot;Disk Transformation&quot;;
+    public static final String HEART_TRANSFORMATION = &quot;Heart Transformation&quot;;
+    public static final String HYPERBOLIC_TRANSFORMATION = &quot;Hyperbolic Transformation&quot;;
+    public static final String LINEAR_TRANSFORMATION = &quot;Linear Transformation&quot;;
+    public static final String POLAR_TRANSFORMATION = &quot;Polar Transformation&quot;;
+    public static final String SINE_TRANSFORMATION = &quot;Sine Transformation&quot;;
+    public static final String SPHERICAL_TRANSFORMATION = &quot;Spherical Transformation&quot;;
+
+<span class="nc" id="L34">    private final List&lt;JCheckBox&gt; checkBoxes = List.of(</span>
+        new JCheckBox(DISK_TRANSFORMATION),
+        new JCheckBox(HEART_TRANSFORMATION),
+        new JCheckBox(HYPERBOLIC_TRANSFORMATION),
+        new JCheckBox(LINEAR_TRANSFORMATION),
+        new JCheckBox(POLAR_TRANSFORMATION),
+        new JCheckBox(SINE_TRANSFORMATION),
+        new JCheckBox(SPHERICAL_TRANSFORMATION)
+    );
+
+<span class="nc" id="L44">    private JLabel imageLabel;</span>
+
+<span class="nc" id="L46">    private final Map&lt;JLabel, JTextField&gt; fieldMap = new LinkedHashMap&lt;&gt;(Map.of(</span>
+        new JLabel(&quot;Enter Affine Amount:&quot;),
+        new JTextField(1),
+        new JLabel(&quot;Enter Symmetry:&quot;),
+        new JTextField(1),
+        new JLabel(&quot;Enter Samples Amount:&quot;),
+        new JTextField(1),
+        new JLabel(&quot;Enter Iteration Amount:&quot;),
+        new JTextField(1)
+    )
+    );
+
+<span class="nc" id="L58">    private final JButton startButton = new JButton(&quot;Start&quot;);</span>
+<span class="nc" id="L59">    private final JButton stopButton = new JButton(&quot;Stop&quot;);</span>
+<span class="nc" id="L60">    private final JCheckBox multiThreadCheckBox = new JCheckBox(&quot;Enable MultiThreading&quot;);</span>
+
+    @SuppressWarnings(&quot;checkstyle:MagicNumber&quot;)
+<span class="nc" id="L63">    public UIRenderer() {</span>
+<span class="nc" id="L64">        setTitle(&quot;Fractal Flame UI&quot;);</span>
+<span class="nc" id="L65">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L66">        setPreferredSize(new Dimension(1000, 600));</span>
+<span class="nc" id="L67">        setLayout(new BorderLayout());</span>
+<span class="nc" id="L68">        setResizable(false);</span>
+<span class="nc" id="L69">        JPanel leftPanel = new JPanel();</span>
+<span class="nc" id="L70">        leftPanel.setBackground(Color.WHITE);</span>
+<span class="nc" id="L71">        leftPanel.setLayout(new BorderLayout());</span>
+<span class="nc" id="L72">        imageLabel = new JLabel(new ImageIcon(</span>
+            new ImageIcon(&quot;C:\\FractalFlame\\image.png&quot;)
+<span class="nc" id="L74">                .getImage()</span>
+<span class="nc" id="L75">                .getScaledInstance(830, 600, Image.SCALE_SMOOTH)</span>
+        ));
+<span class="nc" id="L77">        imageLabel.setPreferredSize(new Dimension(830, 100));</span>
+<span class="nc" id="L78">        leftPanel.add(imageLabel, BorderLayout.CENTER);</span>
+<span class="nc" id="L79">        add(leftPanel, BorderLayout.WEST);</span>
+
+<span class="nc" id="L81">        JPanel rightPanel = new JPanel();</span>
+<span class="nc" id="L82">        rightPanel.setLayout(new GridLayout(11, 1, 0, 5));</span>
+
+<span class="nc" id="L84">        JMenuBar menuBar = new JMenuBar();</span>
+<span class="nc" id="L85">        JMenu checkBoxMenu = new JMenu(&quot;Transformations&quot;);</span>
+<span class="nc" id="L86">        checkBoxes.forEach(checkBoxMenu::add);</span>
+
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        for (Map.Entry&lt;JLabel, JTextField&gt; entry : fieldMap.entrySet()) {</span>
+<span class="nc" id="L89">            entry.getKey().setBorder(new EmptyBorder(new Insets(0, 0, 0, 10)));</span>
+<span class="nc" id="L90">            rightPanel.add(entry.getKey());</span>
+<span class="nc" id="L91">            rightPanel.add(entry.getValue());</span>
+<span class="nc" id="L92">        }</span>
+
+<span class="nc" id="L94">        JPanel buttonPanel = new JPanel();</span>
+
+<span class="nc" id="L96">        buttonPanel.add(startButton);</span>
+
+<span class="nc" id="L98">        menuBar.add(checkBoxMenu);</span>
+<span class="nc" id="L99">        rightPanel.add(menuBar);</span>
+
+<span class="nc" id="L101">        rightPanel.add(multiThreadCheckBox);</span>
+
+<span class="nc" id="L103">        rightPanel.add(buttonPanel);</span>
+<span class="nc" id="L104">        add(rightPanel, BorderLayout.EAST);</span>
+
+<span class="nc" id="L106">        pack();</span>
+<span class="nc" id="L107">        setLocationRelativeTo(null);</span>
+<span class="nc" id="L108">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

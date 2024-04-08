@@ -21,3 +21,4 @@ _Original article:_ https://flam3.com/flame_draves.pdf
 ```shell
   java -jar essentials-1.0.0-jar-with-dependencies.jar
 ```
+(Path to your image: C:/FractalFlame/image.png)
